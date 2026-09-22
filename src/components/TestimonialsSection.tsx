@@ -65,6 +65,9 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
                   src={test.avatar}
                   alt={test.author}
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(test.author)}&background=6366f1&color=fff`;
+                  }}
                   className="w-12 h-12 rounded-full object-cover ring-2 ring-slate-100 dark:ring-slate-800"
                 />
                 <div>

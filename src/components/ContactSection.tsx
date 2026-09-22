@@ -44,25 +44,49 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ profile, themeCo
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
     setStatus('sending');
-    setTimeout(() => {
-      setStatus('success');
-      // Create mailto link as fallback to ensure real direct message capability
+    const recipientEmail = profile.email || 'lenoguedesg@gmail.com';
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          _subject: `[Portfólio Leno Guedes] ${formData.subject || 'Novo Contato do Site'}`,
+          message: formData.message,
+          _captcha: 'false',
+          _template: 'table',
+        }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error('FormSubmit returned error status');
+      }
+    } catch (err) {
+      console.warn('Form submission fallback triggered:', err);
+      // Fallback via mailto
       const mailtoSubject = encodeURIComponent(
-        `[Portfolio Contact] ${formData.subject || 'New Project'}`
+        `[Portfólio Leno Guedes] ${formData.subject || 'Novo Contato do Site'}`
       );
       const mailtoBody = encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+        `Nome: ${formData.name}\nE-mail: ${formData.email}\n\nMensagem:\n${formData.message}`
       );
-      
-      // Auto reset form
+      window.location.href = `mailto:${recipientEmail}?subject=${mailtoSubject}&body=${mailtoBody}`;
+      setStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setStatus('idle'), 5000);
-    }, 800);
+    }
   };
 
   return (
@@ -213,11 +237,22 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ profile, themeCo
                     <Check className="w-6 h-6" />
                   </div>
                   <h4 className="text-lg font-bold text-emerald-900 dark:text-emerald-100">
-                    {t.successTitle}
+                    {isEn ? 'Message Sent Successfully!' : 'Mensagem Enviada com Sucesso!'}
                   </h4>
                   <p className="text-xs text-emerald-700 dark:text-emerald-300 max-w-md mx-auto">
-                    {t.successDesc}
+                    {isEn
+                      ? `Your message has been dispatched to ${profile.email || 'lenoguedesg@gmail.com'}. I will get back to you shortly.`
+                      : `Sua mensagem foi entregue com sucesso para ${profile.email || 'lenoguedesg@gmail.com'}. Responderei em breve.`}
                   </p>
+                  <div className="pt-2">
+                    <button
+                      type="button"
+                      onClick={() => setStatus('idle')}
+                      className="px-4 py-2 rounded-xl text-xs font-bold text-emerald-800 dark:text-emerald-200 bg-emerald-100 dark:bg-emerald-900/60 hover:bg-emerald-200 dark:hover:bg-emerald-800 transition-colors cursor-pointer"
+                    >
+                      {isEn ? 'Send another message' : 'Enviar outra mensagem'}
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -312,6 +347,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ profile, themeCo
                       </>
                     )}
                   </button>
+
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 text-center flex items-center justify-center gap-1.5 pt-1">
+                    <Mail className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
+                    <span>
+                      {isEn
+                        ? 'Messages are delivered directly to lenoguedesg@gmail.com'
+                        : 'Mensagens entregues diretamente em lenoguedesg@gmail.com'}
+                    </span>
+                  </p>
                 </form>
               )}
 

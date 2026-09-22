@@ -11,7 +11,7 @@ export const initialProfile: UserProfile = {
     "Atualmente atuo em Planejamento Comercial, ampliando minha atuação para indicadores de desempenho e estratégia de negócio. Sou responsável pela apuração de campanhas, cálculos de remuneração variável (RV), construção e validação de métricas, além de análises de churn histórico e estudos de correlação entre evasão de clientes e produtividade de operadores, lojas e regionais. Também atuo na otimização e documentação de processos, automação de rotinas analíticas e sustentação de painéis e dashboards, garantindo a confiabilidade dos dados que apoiam decisões estratégicas.",
     "Minha trajetória conecta operação, risco e estratégia por meio da análise de dados, com foco em transformar informações complexas em indicadores claros, gerar eficiência operacional e apoiar decisões orientadas por dados. Sigo aprofundando meus conhecimentos em SQL, ETL, modelagem e automação, com o objetivo de atuar de forma cada vez mais estratégica na área de Dados."
   ],
-  avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+  avatar: "./images/avatar.jpg",
   location: "Florianópolis - SC, Brasil (Disponível Remoto / Híbrido)",
   email: "lenoguedesg@gmail.com",
   phone: "+55 (48) 98442-2718",
@@ -298,7 +298,7 @@ export const initialProfile: UserProfile = {
       highlights: [
         "Desempenho Acadêmico de Destaque: Notas máximas (10,0) em Banco de Dados para Tomada de Decisão, Mineração de Dados, Algoritmos e Programação I e Projetos Integradores.",
         "Projetos Aplicados: Desenvolvimento de Projetos Integradores em Diagnóstico Tecnológico (Nota 10), Desenvolvimento (Nota 9,9), Implantação (Nota 9,9), Ciência de Dados (Nota 9,2) e Apoio Decisório (Nota 9,6).",
-        "Disciplinas Avançadas Concluídas: Aprendizado de Máquinas (9,6), Bancos de Dados Não Relacionais (9,6), Administração de Banco de Dados (9,4), Programação de Banco de Dados (8,6) e Segurança de Dados & Big Data (7,6)."
+        "Disciplinas Avançadas: Aprendizado de Máquinas (9,6), Bancos de Dados Não Relacionais (9,6), Administração de Banco de Dados (9,4), Programação de Banco de Dados (8,6) e Segurança de Dados & Big Data (7,6)."
       ],
       keyDisciplines: [
         { name: "Banco de Dados para Tomada de Decisão", grade: "10.0", period: "2º Sem/2025" },
@@ -397,7 +397,7 @@ export const initialProfile: UserProfile = {
       author: "Rodrigo Mendonça",
       role: "Gerente de Planejamento & Estratégia",
       company: "Operações Corporativas",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+      avatar: "./images/depoimento-1.jpg",
       content: "O Leno possui uma capacidade singular de conectar a operação diária à visão estratégica. Sua habilidade em construir automações com Python e SQL, aliada à precisão nos cálculos de campanhas e RV, transformou a velocidade e a confiabilidade do nosso planejamento."
     },
     {
@@ -405,7 +405,7 @@ export const initialProfile: UserProfile = {
       author: "Camila Duarte",
       role: "Coordenadora de Prevenção e Riscos",
       company: "Gestão de Riscos & Fraudes",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
+      avatar: "./images/depoimento-2.jpg",
       content: "Trabalhar com o Leno em ambientes de alta criticidade traz segurança. Seu rigor analítico na investigação de anomalias, análise de brute force e integridade de dados foi fundamental para mitigar perdas e fundamentar decisões técnicas embasadas em fatos."
     }
   ],

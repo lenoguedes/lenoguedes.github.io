@@ -20,7 +20,7 @@ import { Footer } from './components/Footer';
 export default function App() {
   // Load saved profile or fallback to initial profile
   const [profile, setProfile] = useState<UserProfile>(() => {
-    const PROFILE_SYNC_VERSION = 'v14_clean_sync_and_keys';
+    const PROFILE_SYNC_VERSION = 'v15_local_images_and_advanced_disciplines';
     try {
       const savedVersion = localStorage.getItem('portfolio_profile_version');
       const savedStr = localStorage.getItem('portfolio_user_profile');

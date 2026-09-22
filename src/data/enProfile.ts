@@ -11,7 +11,7 @@ export const englishProfile: UserProfile = {
     "Currently, I serve in Commercial Planning, driving business performance indicators and commercial strategy. I lead campaign audits, variable compensation calculations (RV), performance metric validations, and correlation analyses between customer churn and store/operator productivity. I also design analytical automation scripts and maintain dashboards that empower senior leadership with trustworthy metrics.",
     "My background bridges technical operations, risk governance, and executive strategy through robust data engineering. I continually deepen my mastery of SQL, ETL pipelines, predictive modeling, and automation to deliver strategic value."
   ],
-  avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+  avatar: "./images/avatar.jpg",
   location: "Florianópolis - SC, Brazil (Available Remote / Hybrid)",
   email: "lenoguedesg@gmail.com",
   phone: "+55 (48) 98442-2718",
@@ -293,12 +293,12 @@ export const englishProfile: UserProfile = {
       institution: "Senac",
       period: "2024 – 2026 (Completion: June/2026)",
       location: "Florianópolis, SC",
-      status: "In Progress (5th Semester Finished / 100% Coursework Satisfied)",
+      status: "Completed",
       description: "Higher education degree with 100% completed coursework, with academic honors across Data Engineering, Database Administration, Data Mining, Machine Learning, and NoSQL systems.",
       highlights: [
         "Distinguished Academic Record: Perfect 10.0 grades in Decision-Support Databases, Data Mining, Algorithms & Programming, and Capstone Projects.",
         "Applied Capstone Deliverables: Excellence in Technological Diagnostics (Grade: 10.0), System Development (9.9), Implementation (9.9), Decision Support (9.6), and Data Science (9.2).",
-        "Advanced Completed Disciplines: Machine Learning (9.6), Non-Relational NoSQL Databases (9.6), Database Administration (9.4), Database Programming & SQL (8.6), and Big Data Security (7.6)."
+        "Advanced Disciplines: Machine Learning (9.6), Non-Relational NoSQL Databases (9.6), Database Administration (9.4), Database Programming & SQL (8.6), and Big Data Security (7.6)."
       ],
       keyDisciplines: [
         { name: "Databases for Decision Making", grade: "10.0", period: "2nd Sem/2025" },

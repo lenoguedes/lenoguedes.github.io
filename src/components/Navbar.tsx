@@ -125,6 +125,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               src={profile.avatar}
               alt={profile.name}
               referrerPolicy="no-referrer"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80";
+              }}
               className="w-10 h-10 rounded-xl object-cover ring-2 ring-slate-200 dark:ring-slate-700 shadow-md transition-transform group-hover:scale-105"
             />
           ) : (

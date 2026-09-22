@@ -36,9 +36,29 @@ export const Footer: React.FC<FooterProps> = ({ profile, themeColor, language = 
               <p className="text-sm font-bold text-slate-900 dark:text-white">
                 {profile.name} • {new Date().getFullYear()}
               </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1">
-                <span>{t.builtWith}</span>
-              </p>
+              <div className="mt-1 space-y-1.5">
+                <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400">
+                  {isEn ? 'Built with modern web technologies:' : 'Ferramentas utilizadas para criar esta página:'}
+                </p>
+                <div className="flex flex-wrap items-center gap-1.5">
+                  {[
+                    'React 19',
+                    'TypeScript',
+                    'Vite',
+                    'Tailwind CSS',
+                    'Motion',
+                    'Lucide Icons',
+                    'GitHub Pages'
+                  ].map((tool) => (
+                    <span
+                      key={tool}
+                      className="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700/70 shadow-2xs"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 

@@ -178,9 +178,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="flex items-center gap-4">
                 <div className="relative group">
                   <img
-                    src={profile.avatar || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"}
+                    src={profile.avatar || "./images/avatar.jpg"}
                     alt={profile.name}
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80";
+                    }}
                     className="w-20 h-20 rounded-2xl object-cover ring-4 ring-slate-100 dark:ring-slate-800 shadow-md group-hover:opacity-90 transition-opacity"
                   />
                   {onOpenAvatarUpload && (

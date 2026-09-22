@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Education, Certification, ThemeColor, Language } from '../types';
 import { themes } from '../utils/theme';
 import { translations } from '../utils/translations';
@@ -11,9 +11,6 @@ import {
   CheckCircle,
   ShieldCheck,
   Tag,
-  BookOpen,
-  ChevronDown,
-  ChevronUp,
   Sparkles,
   School
 } from 'lucide-react';
@@ -34,11 +31,6 @@ export const EducationCerts: React.FC<EducationCertsProps> = ({
   const t = translations[language].education;
   const isEn = language === 'en';
   const currentTheme = themes[themeColor] || themes.indigo;
-  const [expandedEduId, setExpandedEduId] = useState<string | null>(null);
-
-  const toggleExpand = (id: string) => {
-    setExpandedEduId(prev => (prev === id ? null : id));
-  };
 
   return (
     <section id="formacao" className="py-20 bg-slate-50/60 dark:bg-slate-900/40 border-y border-slate-200/60 dark:border-slate-800/60">
@@ -71,7 +63,6 @@ export const EducationCerts: React.FC<EducationCertsProps> = ({
 
             <div className="space-y-4">
               {education.map((edu, idx) => {
-                const isExpanded = expandedEduId === (edu.id || String(idx));
                 const eduKey = edu.id || String(idx);
 
                 return (
@@ -120,61 +111,6 @@ export const EducationCerts: React.FC<EducationCertsProps> = ({
                             <span className="leading-relaxed">{highlight}</span>
                           </div>
                         ))}
-                      </div>
-                    )}
-
-                    {edu.keyDisciplines && edu.keyDisciplines.length > 0 && (
-                      <div className="pt-2">
-                        <button
-                          type="button"
-                          onClick={() => toggleExpand(eduKey)}
-                          className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-200 transition-colors cursor-pointer border border-slate-200/60 dark:border-slate-700/60"
-                        >
-                          <span className="flex items-center gap-2">
-                            <BookOpen className="w-3.5 h-3.5 text-indigo-500" />
-                            <span>
-                              {isEn 
-                                ? `Curriculum & Evaluated Grades (${edu.keyDisciplines.length} courses)` 
-                                : `Grade Oficial & Notas Avaliadas (${edu.keyDisciplines.length} disciplinas)`}
-                            </span>
-                          </span>
-                          {isExpanded ? (
-                            <ChevronUp className="w-4 h-4 text-slate-400" />
-                          ) : (
-                            <ChevronDown className="w-4 h-4 text-slate-400" />
-                          )}
-                        </button>
-
-                        {isExpanded && (
-                          <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 p-3 bg-slate-50/70 dark:bg-slate-950/40 rounded-2xl border border-slate-200/50 dark:border-slate-800/80">
-                            {edu.keyDisciplines.map((disc, dIdx) => (
-                              <div
-                                key={dIdx}
-                                className="flex items-center justify-between p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-[11px]"
-                              >
-                                <div className="space-y-0.5 pr-2">
-                                  <div className="font-semibold text-slate-800 dark:text-slate-200 line-clamp-1">
-                                    {disc.name}
-                                  </div>
-                                  {disc.period && (
-                                    <div className="text-[10px] text-slate-400">
-                                      {disc.period}
-                                    </div>
-                                  )}
-                                </div>
-                                {disc.grade && (
-                                  <span className={`px-2 py-0.5 rounded-md font-bold shrink-0 ${
-                                    parseFloat(disc.grade) >= 9.5
-                                      ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300'
-                                      : 'bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300'
-                                  }`}>
-                                    {isEn ? `Grade ${disc.grade}` : `Nota ${disc.grade}`}
-                                  </span>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        )}
                       </div>
                     )}
 
