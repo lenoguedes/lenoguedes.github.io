@@ -49,7 +49,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section
       id="inicio"
-      className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden"
+      className="relative pt-32 pb-8 lg:pt-40 lg:pb-10 overflow-hidden"
     >
       {/* Background Decorative Ambient Gradients */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-indigo-500/10 via-purple-500/10 to-pink-500/5 blur-3xl rounded-full pointer-events-none -z-10" />
@@ -182,7 +182,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     alt={profile.name}
                     referrerPolicy="no-referrer"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80";
+                      const target = e.target as HTMLImageElement;
+                      if (!target.dataset.fallbackLevel) {
+                        target.dataset.fallbackLevel = "1";
+                        target.src = "./images/icon.jpeg";
+                      } else if (target.dataset.fallbackLevel === "1") {
+                        target.dataset.fallbackLevel = "2";
+                        target.src = "https://github.com/lenoguedes.png";
+                      }
                     }}
                     className="w-20 h-20 rounded-2xl object-cover ring-4 ring-slate-100 dark:ring-slate-800 shadow-md group-hover:opacity-90 transition-opacity"
                   />

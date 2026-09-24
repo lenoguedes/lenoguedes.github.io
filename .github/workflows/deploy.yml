@@ -27,10 +27,15 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build static site
-        run: npx vite build
+        run: npm run build:pages
+
+      - name: Ensure .nojekyll and 404 fallback
+        run: |
+          touch ./dist/.nojekyll
+          cp ./dist/index.html ./dist/404.html || true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

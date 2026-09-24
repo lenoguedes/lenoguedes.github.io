@@ -72,7 +72,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ profile, themeColor,
       ];
 
   return (
-    <section id="sobre" className="py-20 bg-slate-50/60 dark:bg-slate-900/40 border-y border-slate-200/60 dark:border-slate-800/60">
+    <section id="sobre" className="pt-2 sm:pt-4 pb-8 lg:pb-10 bg-slate-50/60 dark:bg-slate-900/40 border-y border-slate-200/60 dark:border-slate-800/60 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

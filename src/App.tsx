@@ -20,7 +20,7 @@ import { Footer } from './components/Footer';
 export default function App() {
   // Load saved profile or fallback to initial profile
   const [profile, setProfile] = useState<UserProfile>(() => {
-    const PROFILE_SYNC_VERSION = 'v15_local_images_and_advanced_disciplines';
+    const PROFILE_SYNC_VERSION = 'v16_github_real_avatar';
     try {
       const savedVersion = localStorage.getItem('portfolio_profile_version');
       const savedStr = localStorage.getItem('portfolio_user_profile');
@@ -32,8 +32,8 @@ export default function App() {
         if (savedVersion !== PROFILE_SYNC_VERSION || saved.headline?.toLowerCase().includes('full-stack')) {
           const synced: UserProfile = {
             ...initialProfile,
-            // Preserva a foto se o usuário tiver feito upload manual de imagem
-            avatar: (saved.avatar && !saved.avatar.includes('photo-1534528741775-53994a69daeb'))
+            // Preserva a foto se o usuário tiver feito upload manual de imagem (base64)
+            avatar: (saved.avatar && saved.avatar.startsWith('data:image'))
               ? saved.avatar
               : initialProfile.avatar,
           };

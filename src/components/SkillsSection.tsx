@@ -44,7 +44,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skills, themeColor
       : skills.filter((s) => s.category === selectedCat);
 
   return (
-    <section id="habilidades" className="py-24">
+    <section id="habilidades" className="pt-2 sm:pt-4 pb-8 lg:pb-10 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

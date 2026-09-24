@@ -90,7 +90,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ profile, themeCo
   };
 
   return (
-    <section id="contato" className="py-24 bg-slate-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800/60">
+    <section id="contato" className="pt-2 sm:pt-4 pb-12 lg:pb-16 bg-slate-50/60 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800/60 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

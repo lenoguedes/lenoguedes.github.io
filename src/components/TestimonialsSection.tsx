@@ -20,7 +20,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
   if (!testimonials || testimonials.length === 0) return null;
 
   return (
-    <section className="py-24">
+    <section id="recomendacoes" className="pt-2 sm:pt-4 pb-8 lg:pb-10 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

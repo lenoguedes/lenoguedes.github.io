@@ -192,6 +192,38 @@ export const AvatarUploadModal: React.FC<AvatarUploadModalProps> = ({
             </button>
           </div>
 
+          {/* Quick Option: Use GitHub Avatar */}
+          <button
+            id="use-github-avatar-btn"
+            type="button"
+            onClick={() => {
+              const ghAvatar = "https://github.com/lenoguedes.png";
+              setPreviewUrl(ghAvatar);
+              setUrlInput(ghAvatar);
+              setErrorMsg(null);
+            }}
+            className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-left cursor-pointer"
+          >
+            <div className="flex items-center gap-2.5">
+              <img
+                src="https://github.com/lenoguedes.png"
+                alt="GitHub Leno Guedes"
+                className="w-7 h-7 rounded-lg object-cover ring-1 ring-slate-300 dark:ring-slate-700"
+              />
+              <div>
+                <span className="text-xs font-bold text-slate-800 dark:text-slate-200 block">
+                  Usar minha foto oficial do GitHub
+                </span>
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 block">
+                  @lenoguedes (atualizada automaticamente com seu perfil)
+                </span>
+              </div>
+            </div>
+            <span className="text-[11px] font-bold text-indigo-600 dark:text-indigo-400">
+              Aplicar →
+            </span>
+          </button>
+
           {/* Mode 1: File Upload */}
           {activeMode === 'upload' && (
             <div className="space-y-3">

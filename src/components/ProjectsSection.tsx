@@ -3,7 +3,6 @@ import { Project, ThemeColor, Language } from '../types';
 import { themes } from '../utils/theme';
 import { translations } from '../utils/translations';
 import {
-  Code2,
   ExternalLink,
   Github,
   Search,
@@ -65,25 +64,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
   }, [projects, selectedCategory, searchQuery, allLabel]);
 
   return (
-    <section id="projetos" className="py-24">
+    <section id="projetos" className="pt-2 sm:pt-4 pb-8 lg:pb-10 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div className="space-y-3 text-left">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-              <Code2 className="w-3.5 h-3.5" />
-              <span>{isEn ? 'Portfolio & Deliverables' : 'Portfólio & Entregas'}</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              {t.title}
-            </h2>
-            <p className="text-base text-slate-600 dark:text-slate-400 max-w-2xl">
-              {t.subtitle}
-            </p>
-          </div>
-        </div>
-
         {/* Live Applications Showcase Bar */}
         <div className="mb-10 p-4 sm:p-5 rounded-3xl bg-gradient-to-r from-indigo-50/70 via-slate-50 to-indigo-50/70 dark:from-slate-900/90 dark:via-indigo-950/20 dark:to-slate-900/90 border border-indigo-100 dark:border-indigo-900/40 text-left">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">

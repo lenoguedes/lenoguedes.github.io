@@ -27,7 +27,7 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
   const isEn = language === 'en';
 
   return (
-    <section id="experiencia" className="py-20 bg-slate-50/60 dark:bg-slate-900/40 border-y border-slate-200/60 dark:border-slate-800/60">
+    <section id="experiencia" className="pt-2 sm:pt-4 pb-8 lg:pb-10 bg-slate-50/60 dark:bg-slate-900/40 border-y border-slate-200/60 dark:border-slate-800/60 scroll-mt-24">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
