@@ -20,7 +20,7 @@ import { Footer } from './components/Footer';
 export default function App() {
   // Load saved profile or fallback to initial profile
   const [profile, setProfile] = useState<UserProfile>(() => {
-    const PROFILE_SYNC_VERSION = 'v16_github_real_avatar';
+    const PROFILE_SYNC_VERSION = 'v17_avatar_jpg_file';
     try {
       const savedVersion = localStorage.getItem('portfolio_profile_version');
       const savedStr = localStorage.getItem('portfolio_user_profile');
